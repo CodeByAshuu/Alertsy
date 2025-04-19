@@ -1,0 +1,211 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 0 85% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 240 10% 3.9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 185 88% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 85% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 85% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 185 88% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 0 85% 60%;
+
+    /* Brand colors */
+    --brand-black: 240 10% 3.9%;
+    --brand-red: 0 85% 60%;
+    --brand-blue: 185 88% 50%;
+    --brand-gold: 43 100% 50%;
+    --brand-background: 240 10% 3.9%;
+    --brand-gray: 0 0% 98%;
+    --brand-lightGray: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-foreground/50;
+  }
+}
+
+/* Typing animation for chatbot */
+.dot-typing {
+  position: relative;
+  left: -9999px;
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  animation: dot-typing 1.5s infinite linear;
+}
+
+@keyframes dot-typing {
+  0% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+  33.333% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+  50% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px -10px 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+  66.667% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+  83.333% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px -10px 0 0 var(--accent);
+  }
+  100% {
+    box-shadow: 9984px 0 0 0 var(--accent), 9999px 0 0 0 var(--accent), 10014px 0 0 0 var(--accent);
+  }
+}
+
+/* Animations */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.shine-effect {
+  background: linear-gradient(90deg, 
+    rgba(255, 215, 0, 0.2), 
+    rgba(255, 215, 0, 0.5), 
+    rgba(255, 215, 0, 0.2)
+  );
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300;
+}
+
+.hover-scale:hover {
+  @apply transform scale-105;
+}
+
+.pulse-animation {
+  @apply animate-pulse;
+}
+
+/* Gold accent elements */
+.gold-text {
+  @apply text-amber-400;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Premium gradient borders */
+.premium-border {
+  @apply border-2 relative overflow-hidden;
+}
+
+.premium-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FF3D00, #FFD700, #00E5FF, #FF3D00);
+  background-size: 400% 400%;
+  animation: gradient-border 3s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
